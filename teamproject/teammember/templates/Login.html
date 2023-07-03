@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, #eacda3, #d6ae7b);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgba(7, 179, 185, 0.753);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+ 
+<form action="/postsignIn/" method="post">
+    {% csrf_token %}
+    <h1>Sign In</h1>
+ 
+    <label for="Email">Email</label>
+    <input type="email" id="Email" name="email">
+    <br><br>
+ 
+    <label for="Password">Password</label>
+    <input type="password" id="Password" name="pass">
+    <br><br>
+ 
+    <input type="submit" value="SignIn">
+    <br><br>
+ 
+    <p style="color: black;padding: 10px 0;">Forgot Password? <a href="/reset/" style="color: black;">Click Here to Reset</a></p>
+ 
+    <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    <button type="button" onclick="location.href='{% url 'signup' %} '">SignUp</button>
+</form>
+</body>
+</html>
